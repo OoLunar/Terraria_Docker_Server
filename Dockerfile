@@ -5,7 +5,7 @@ LABEL maintainer="akmaslov-dev"
 
 # Container args
 # Current terraria server version
-ARG TERRARIA_VERSION=1404
+ARG TERRARIA_VERSION=1405
 
 # Installing packages and dependences
 # Also cleanup after installation
@@ -29,7 +29,7 @@ RUN ln -s /root/.local/share/Terraria/ /terraria
 WORKDIR /terraria
 
 # Download URL for terraria server. Be careful because it can change
-RUN wget https://terraria.org/system/dedicated_servers/archives/000/000/038/original/terraria-server-$TERRARIA_VERSION.zip
+RUN wget https://terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-$TERRARIA_VERSION.zip
 RUN unzip -j -o terraria-server-$TERRARIA_VERSION.zip $TERRARIA_VERSION'/Linux/*' -d /terraria
 RUN rm terraria-server-$TERRARIA_VERSION.zip
 
