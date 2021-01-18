@@ -1,20 +1,27 @@
 #!/bin/bash
 
-server="/terraria/TerrariaServer.bin.x86_64"
-server_config="/terraria/config/config.txt"
+server="/etc/terraria/TerrariaServer.bin.x86_64"
+server_config="/data/config/config.txt"
 
 pipe=/tmp/terraria.out
 players=/tmp/terraria.players.out
 
 function shutdown() {
-  terraria_cli "say Server is shutting down NOW!"
-  terraria_cli "exit"
-  tmuxPid=$(pgrep tmux)
-  terrariaPid=$(pgrep --parent $tmuxPid Main)
-  while [ -e /proc/$terrariaPid ]; do
-    sleep .5
-  done
-  rm $pipe
+    count=5
+    # Count down to 0 using a C-style arithmetic expression inside `((...))`.
+    # Note: Increment the count first so as to simplify the `while` loop.
+    (( ++count )) 
+    while (( --count >= 0 )); do
+        terraria_cli "say Shutdown in $count seconds..."
+    done
+    terraria_cli "Shutting down..."
+    terraria_cli "exit"
+    tmuxPid=$(pgrep tmux)
+    terrariaPid=$(pgrep --parent $tmuxPid Main)
+    while [ -e /proc/$terrariaPid ]; do
+        sleep .5
+    done
+    rm $pipe
 }
 
 trap "shutdown" SIGTERM SIGINT

@@ -3,15 +3,17 @@ version: '3.8'
 
 services:
   # service name
-  app:
+  terraria:
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
       - "7777:7777"
+    environment:
+      - "TZ=Etc/UTC"
+      - "TERRARIA_VERSION=1405"
     volumes:
-      # volume for world files
-      - ./world:/terraria/world
-      # volume for config file
-      - ./config:/terraria/config:ro
+      - "./worlds:/data/worlds"
+      - "./config.txt:/data/config/config.txt:ro"
+      - "./logs:/data/logs"
     restart: always
