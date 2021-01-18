@@ -10,6 +10,7 @@ touch /data/configs/banlist.ini
 ln -snf /data/scripts/terraria_cli.sh /usr/local/bin/terraria_cli
 ln -snf /data/ /root/.local/share/Terraria
 chmod 755 /data/scripts/docker-entrypoint.sh /data/scripts/terraria_cli.sh /usr/local/bin/terraria_cli /etc/terraria/TerrariaServer.bin.x86_64
+chmod -R 777 /data
 
 function shutdown() {
     count=5
