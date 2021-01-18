@@ -1,53 +1,28 @@
-# Terraria vanilla docker server
-
+# Terraria Docker Server
 
 ## Project requirements
 
-* Docker
-
-* Docker-compose
-
+- Docker
+- (Optional) Docker-compose
 
 ## Configuration
 
-1. You need to create `config.txt` file inside `config` directory. See example below or [here](https://terraria.gamepedia.com/Guide:Setting_up_a_Terraria_server#Making_a_configuration_file). Please do not edit paths for `world` and `worldpath`. You just need to modify `*.wld` filename(if needed).
-    ```bash
-    
-    # See wiki for server configuration fparameters
-    # https://terraria.gamepedia.com/Guide:Setting_up_a_Terraria_server#Making_a_configuration_file
-  
-    world=/terraria/world/Awesome_world.wld
-    autocreate=1
-    seed=AwesomeSeed
-    worldname=Awesome_terraria_server
-    worldpath=/terraria/world/
-    difficulty=3
-    maxplayers=16
-    password=Awesome_password_here
-    motd=Awesome MOTD here
-    npcstream=0
-    ```
+1. Modify configs/config.ini as needed. The default values should do, however if you wish to change it, documentation can be found at their [wiki page](https://terraria.gamepedia.com/Guide:Setting_up_a_Terraria_server#Making_a_configuration_file).
 
-2. If you already have a save file and you want to host it, just copy your `*.wld` file into `world` directory and modify `world` param of your `config.txt`
+2. If you have a world pre-generated, move it into the `worlds/` folder. Make sure your worldname is the same as the `world` (not `worldname` or `worldpath`) setting in configs/config.ini
 
 
 ### Installation and running
 
-1. Clone or copy this repo
+1. Clone the repo.
+2. Modify configs/config.ini as mentioned in [Configuration](#configuration)
+3. Run `docker-compose up -d` in the terminal.
 
-2. Inside root project directory run:
-    ```bash
-   docker-compose up -d 
-   ```
-
-   
 ### How to send command to server
 
-1. All console commands you can see [here](https://terraria.gamepedia.com/Server#List_of_console_commands)
+All console commands you can be found at their [wiki page](https://terraria.gamepedia.com/Server#List_of_console_commands).
 
-2. Example usage:
-    * Send your message to ingame chat:
-    
-       ```bash
-       docker-compose exec app terraria_cli "say Hello!" 
-       ```
+1. Open up the terminal and navigate to the scripts/ folder.
+2. Execute ```bash
+    docker-compose exec terraria terraria_cli "say Hello!"
+    ```

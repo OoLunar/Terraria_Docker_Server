@@ -14,6 +14,7 @@ services:
       - "TERRARIA_VERSION=1405"
     volumes:
       - "./worlds:/data/worlds"
-      - "./config.txt:/data/config/config.txt:ro"
+      - "./configs:/data/configs/config.txt"
       - "./logs:/data/logs"
+      - "./scripts:/data/scripts"
     restart: always
