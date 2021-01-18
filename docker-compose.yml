@@ -1,8 +1,6 @@
-#docker-compose.yml
 version: '3.8'
 
 services:
-  # service name
   terraria:
     build:
       context: ./
@@ -13,8 +11,5 @@ services:
       - "TZ=Etc/UTC"
       - "TERRARIA_VERSION=1405"
     volumes:
-      - "./worlds:/data/Worlds"
-      - "./configs:/data/configs/config.txt"
-      - "./logs:/data/logs"
-      - "./scripts:/data/scripts"
+      - "/srv/terraria/data:/data"
     restart: always
