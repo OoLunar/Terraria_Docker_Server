@@ -13,7 +13,7 @@ services:
       - "TZ=Etc/UTC"
       - "TERRARIA_VERSION=1405"
     volumes:
-      - "./worlds:/data/worlds"
+      - "./worlds:/data/Worlds"
       - "./configs:/data/configs/config.txt"
       - "./logs:/data/logs"
       - "./scripts:/data/scripts"

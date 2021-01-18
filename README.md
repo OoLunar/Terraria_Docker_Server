@@ -16,7 +16,8 @@
 
 1. Clone the repo.
 2. Modify configs/config.ini as mentioned in [Configuration](#configuration)
-3. Run `docker-compose up -d` in the terminal.
+3. Change file permissions of the scripts: `chmod 755 scripts/*`
+4. Run `docker-compose up -d` in the terminal.
 
 ### How to send command to server
 

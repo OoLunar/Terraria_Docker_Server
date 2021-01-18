@@ -13,6 +13,7 @@ function shutdown() {
     # Note: Increment the count first so as to simplify the `while` loop.
     (( ++count )) 
     while (( --count >= 0 )); do
+        echo "Shutdown in $count seconds..."
         terraria_cli "say Shutdown in $count seconds..."
     done
     terraria_cli "say Shutting down..."
@@ -27,6 +28,6 @@ function shutdown() {
 
 trap "shutdown" SIGTERM SIGINT
 mkfifo $pipe
-tmux new-session -d "$server -config $config_path -logpath  | tee $pipe $players" &
+tmux new-session -d "$server -config $config_path -logpath $log_path | tee $pipe $players" &
 cat $pipe &
 wait ${!}

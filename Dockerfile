@@ -15,7 +15,7 @@ RUN mkdir -p /data/worlds /data/configs /data/scripts /data/logs /etc/terraria \
 WORKDIR /data
 
 RUN ln -s /data/scripts/terraria_cli.sh /usr/local/bin/terraria_cli \
-    && ln -s /root/.local/share/Terraria/ /data \
+    && ln -snf /data/ /root/.local/share/Terraria/ \
     && wget https://terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-$TERRARIA_VERSION.zip \
     && unzip -j -o terraria-server-$TERRARIA_VERSION.zip $TERRARIA_VERSION'/Linux/*' -d /etc/terraria \
     && rm terraria-server-$TERRARIA_VERSION.zip \
