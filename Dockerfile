@@ -18,7 +18,7 @@ RUN ln -s /data/scripts/terraria_cli.sh /usr/local/bin/terraria_cli \
     && ln -s /root/.local/share/Terraria/ /data \
     && wget https://terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-$TERRARIA_VERSION.zip \
     && unzip -j -o terraria-server-$TERRARIA_VERSION.zip $TERRARIA_VERSION'/Linux/*' -d /etc/terraria \
-    && rm terraria-server-$TERRARIA_VERSION.zip
+    && rm terraria-server-$TERRARIA_VERSION.zip \
     && chmod +x /data/scripts/docker-entrypoint.sh /data/scripts/terraria_cli.sh /usr/local/bin/terraria_cli /etc/terraria/TerrariaServer.bin.x86_64
 
 ENTRYPOINT ["./scripts/docker-entrypoint.sh"]
