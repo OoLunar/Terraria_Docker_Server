@@ -13,3 +13,5 @@ services:
     volumes:
       - "/srv/terraria/data:/data"
     restart: always
+    stdin_open: true
+    tty: true
