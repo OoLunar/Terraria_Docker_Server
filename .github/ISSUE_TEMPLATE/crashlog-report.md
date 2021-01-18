@@ -2,7 +2,7 @@
 name: Crashlog Report
 about: The default template for when crashlogs happen.
 title: "[Crashlog Report]"
-labels: bug, help wanted
+labels: Crashlog
 assignees: OoLunar
 
 ---
