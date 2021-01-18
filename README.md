@@ -23,6 +23,7 @@
 All console commands you can be found at their [wiki page](https://terraria.gamepedia.com/Server#List_of_console_commands).
 
 1. Open up the terminal and navigate to the scripts/ folder.
-2. Execute ```bash
+2. Execute
+    ```bash
     docker-compose exec terraria terraria_cli "say Hello!"
     ```
