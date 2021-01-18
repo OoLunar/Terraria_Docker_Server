@@ -20,7 +20,7 @@ function shutdown() {
     while (( --count >= 0 )); do
         echo "Shutdown in $count seconds..."
         terraria_cli "say Shutdown in $count seconds..."
-        sleep $count
+        sleep 1
     done
     echo "Shutting down..."
     terraria_cli "say Shutting down..."
