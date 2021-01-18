@@ -20,6 +20,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 # Download, unzip and fix file permissions
 RUN wget https://terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-$TERRARIA_VERSION.zip \
     && unzip -j -o terraria-server-$TERRARIA_VERSION.zip $TERRARIA_VERSION'/Linux/*' -d /etc/terraria \
-    && rm terraria-server-$TERRARIA_VERSION.zip 
+    && rm terraria-server-$TERRARIA_VERSION.zip
 
 ENTRYPOINT ["/data/scripts/docker-entrypoint.sh"]
