@@ -1,7 +1,8 @@
 #!/bin/bash
 
 server="/etc/terraria/TerrariaServer.bin.x86_64"
-server_config="/data/configs/config.txt"
+config_path="/data/configs/config.ini"
+log_path="/data/logs"
 
 pipe=/tmp/terraria.out
 players=/tmp/terraria.players.out
@@ -26,6 +27,6 @@ function shutdown() {
 
 trap "shutdown" SIGTERM SIGINT
 mkfifo $pipe
-tmux new-session -d "$server -config $server_config | tee $pipe $players" &
+tmux new-session -d "$server -config $config_path -logpath  | tee $pipe $players" &
 cat $pipe &
 wait ${!}
